@@ -40,8 +40,18 @@ func main() {
 			}
 		}
 	} else if mainChoice == 2 {
-
+		fmt.Println("TIC TAC TOE")
 		//TIC TAC TOE
+		// Setup
+		numbers := [9]string{"1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"}
+		for i := 0; i < len(numbers); i++ {
+			if (i+1)%3 == 0 {
+				fmt.Println(numbers[i])
+			} else {
+				fmt.Print(numbers[i])
+				fmt.Print(" ")
+			}
+		}
 	} else if mainChoice == 3 {
 
 		//HANGMAN
