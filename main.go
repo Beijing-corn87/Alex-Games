@@ -5,8 +5,7 @@ import (
 	"math/rand"
 )
 
-func displayGrid() {
-	numbers := [9]string{"1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"}
+func displayGrid(numbers [9]string) {
 	for i := 0; i < len(numbers); i++ {
 		if (i+1)%3 == 0 {
 			fmt.Println(numbers[i])
@@ -61,7 +60,8 @@ func main() {
 		//TIC TAC TOE
 		currentPlayer := "❌"
 		// Setup
-		displayGrid()
+		numbers := [9]string{"1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"}
+		displayGrid(numbers)
 		if currentPlayer == "❌" {
 			var usrPlace int
 			fmt.Print(currentPlayer, "'s turn: ")
@@ -69,7 +69,8 @@ func main() {
 			if err != nil {
 				fmt.Println("Error reading input:", err)
 			} else {
-				fmt.Println(usrPlace)
+				numbers[usrPlace - 1] = currentPlayer
+				displayGrid(numbers)
 			}
 		}
 
