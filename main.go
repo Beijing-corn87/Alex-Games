@@ -71,8 +71,10 @@ func main() {
 	} else if mainChoice == 3 {
 
 		//HANGMAN
+		fmt.Println("IM NOT DONE DOING THIS")
 	} else if mainChoice == 4 {
 
 		//ATTACK
+		fmt.Println("IM NOT DONE DOING THIS")
 	}
 }
