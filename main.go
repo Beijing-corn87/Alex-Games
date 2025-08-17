@@ -59,7 +59,8 @@ func main() {
 		displayGrid()
 		if currentPlayer == "❌" {
 			var usrPlace int
-			_, err := fmt.Scanln(currentPlayer, "'s turn: ")
+			fmt.Print(currentPlayer, "'s turn: ")
+			_, err := fmt.Scan(&usrPlace)
 			if err != nil {
 				fmt.Println("Error reading input:", err)
 			} else {
