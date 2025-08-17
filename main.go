@@ -17,7 +17,12 @@ func displayGrid() {
 	}
 }
 
+func clearConsole() {
+	fmt.Print("\033[H\033[2J")
+}
+
 func main() {
+	clearConsole()
 	//give options
 	fmt.Println("(1) 🔒 Mastermind")
 	fmt.Println("(2) ⭕ Tic-Tac-Toe With Friend")
@@ -52,7 +57,7 @@ func main() {
 			}
 		}
 	} else if mainChoice == 2 {
-		fmt.Println("TIC TAC TOE")
+		clearConsole()
 		//TIC TAC TOE
 		currentPlayer := "❌"
 		// Setup
@@ -69,11 +74,11 @@ func main() {
 		}
 
 	} else if mainChoice == 3 {
-
+		clearConsole()
 		//HANGMAN
 		fmt.Println("IM NOT DONE DOING THIS")
 	} else if mainChoice == 4 {
-
+		clearConsole()
 		//ATTACK
 		fmt.Println("IM NOT DONE DOING THIS")
 	}
