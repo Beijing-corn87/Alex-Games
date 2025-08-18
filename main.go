@@ -10,10 +10,19 @@ func displayGrid(numbers [9]string) {
 		if (i+1)%3 == 0 {
 			fmt.Println(numbers[i])
 		} else {
-			fmt.Print(numbers[i])
-			if numbers[i] != "❌" || numbers[i] != "⭕" {
+			if i != 0 {
+				if numbers[i - 1] == "❌" || numbers[i - 1] == "⭕" {
+					fmt.Print(numbers[i])
+				} else {
+					fmt.Print(numbers[i])
+					fmt.Print(" ")
+				}
+			} else {
+				fmt.Print(numbers[i])
 				fmt.Print(" ")
 			}
+			
+			
 		}
 	}
 }
