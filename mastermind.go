@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"math/rand"
+)
+
 func masternimdGame() {
 		colourList := [6]string{"🟠", "🟡", "🟢", "🔵", "🟣", "🟤"}
 

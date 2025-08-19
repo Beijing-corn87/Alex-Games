@@ -1,5 +1,9 @@
 package main
 
+import (
+	"fmt"
+)
+
 
 func displayGrid(numbers [9]string) {
 	for i := 0; i < len(numbers); i++ {
