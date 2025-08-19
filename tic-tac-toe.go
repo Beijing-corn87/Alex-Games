@@ -25,6 +25,7 @@ func displayGrid(numbers [9]string) {
 	}
 }
 
+// ENTRYPOINT
 func ticTacToeGame() {
 	currentPlayer := "❌"
 		// Setup

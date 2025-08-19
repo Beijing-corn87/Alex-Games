@@ -25,19 +25,20 @@ func main() {
 	} else if mainChoice == 1 {
 		clearConsole()
 		// MASTERMIND
-
 		masternimdGame()
 	} else if mainChoice == 2 {
-		
+		clearConsole()
 		//TIC TAC TOE
 		ticTacToeGame()
 	} else if mainChoice == 3 {
 		clearConsole()
 		//HANGMAN
 		fmt.Println("IM NOT DONE DOING THIS")
+		hangmanGame()
 	} else if mainChoice == 4 {
 		clearConsole()
 		//ATTACK
 		fmt.Println("IM NOT DONE DOING THIS")
+		attackGame()
 	}
 }
