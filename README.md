@@ -1,5 +1,5 @@
 ### Its a game. For alex
 run it using
 ```bash
-go run main.go
+go run .
 ```
