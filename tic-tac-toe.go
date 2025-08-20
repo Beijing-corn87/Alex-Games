@@ -11,32 +11,37 @@ func displayGrid(numbers [9]string) {
 			fmt.Println(numbers[i])
 		} else {
 			fmt.Print(numbers[i])
-			fmt.Print(" ")
 		}
 	}
 }
 
 // ENTRYPOINT
 func ticTacToeGame() {
+	// Setup
 	currentPlayer := "❌"
-		// Setup
-		numbers := [9]string{"1️⃣", " 2️⃣", " 3️⃣", "4️⃣", " 5️⃣", " 6️⃣", "7️⃣", " 8️⃣", " 9️⃣"}
-		displayGrid(numbers)
-		var turnNum int
-		for turnNum < 9 {
+	hasWon := false
+	var winner string
+	
+	//acuals game
+	numbers := [9]string{"1 ", " 2 ", " 3 ", "4 ", " 5 ", " 6 ", "7 ", " 8 ", " 9 "}
+	displayGrid(numbers)
+	var turnNum int
+	for turnNum < 9 {
+		var usrPlace int
+		fmt.Print(currentPlayer, "'s turn: ")
+		_, err := fmt.Scan(&usrPlace)
+		if err != nil {
+			fmt.Println("Error reading input:", err)
+		} else {
+			numbers[usrPlace - 1] = currentPlayer
+			clearConsole()
+			displayGrid(numbers)
+			turnNum++
 			if currentPlayer == "❌" {
-				var usrPlace int
-				fmt.Print(currentPlayer, "'s turn: ")
-				_, err := fmt.Scan(&usrPlace)
-				if err != nil {
-					fmt.Println("Error reading input:", err)
-				} else {
-					numbers[usrPlace - 1] = currentPlayer
-					clearConsole()
-					displayGrid(numbers)
-					turnNum++
-				}
-				
-			}			
-		}
+				currentPlayer = "⭕"
+			} else {
+				currentPlayer = "❌"
+			}
+		}			
+	}
 }
