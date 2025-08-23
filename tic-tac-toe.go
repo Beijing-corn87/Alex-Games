@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
-func checkIfWon(numbers [9]string) {
+func checkIfWon(numbers [9]string) bool {
 	var winningCombinations [8][3]int = [8][3]int{
 		{1, 2, 3}, // Top row
 		{4, 5, 6}, // Middle row
@@ -18,12 +19,19 @@ func checkIfWon(numbers [9]string) {
 		{3, 5, 7}, // Diagonal from top-right to bottom-left
 	}
 	for combo := 0; combo < len(winningCombinations); combo++ {
+		matches := [3]bool{false, false, false}
 		for combix := 0; combix < 3; combix++ {
 			if numbers[winningCombinations[combo][combix]] == "❌" {
-
+				matches[combix] = true
 			}
 		}
+		if matches[0] && matches[1] && matches[2] {
+			return true
+		} else {
+			matches[0], matches[1], matches[2] = false, false, false
+		}
 	}
+	return false
 }
 
 func displayGrid(numbers [9]string) {
@@ -53,6 +61,11 @@ func ticTacToeGame() {
 		_, err := fmt.Scan(&usrPlace)
 		if err != nil {
 			fmt.Println("Error reading input:", err)
+		} else if numbers[usrPlace-1] == "❌" || numbers[usrPlace-1] == "⭕" {
+			clearConsole()
+			displayGrid(numbers)
+			fmt.Println("Can't place there! Try again: ")
+			time.Sleep(1000)
 		} else {
 			numbers[usrPlace-1] = currentPlayer
 			clearConsole()
